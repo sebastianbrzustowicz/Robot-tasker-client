@@ -14,13 +14,20 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_getCityID, btn_getWeatherByCityID, btn_getWeatherByCityName;
-    EditText et_dataInput;
+    Button btn_SignIn, btn_SignUp;
+    EditText et_dataInputEmail, et_dataInputPassword;
     ListView lv_weatherReport;
 
     @Override
@@ -29,59 +36,88 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // assign values to each control on the layout
-        btn_getCityID = findViewById(R.id.btn_getCityID);
-        btn_getWeatherByCityID = findViewById(R.id.btn_getWeatherByCityID);
-        btn_getWeatherByCityName = findViewById(R.id.btn_getWeatherByCityName);
+        btn_SignIn = findViewById(R.id.btn_SignIn);
+        btn_SignUp = findViewById(R.id.btn_SignUp);
+        //btn_getWeatherByCityName = findViewById(R.id.btn_getWeatherByCityName);
 
-        et_dataInput = findViewById(R.id.et_dataInput);
-        lv_weatherReport = findViewById(R.id.lv_weatherReport);
+        et_dataInputEmail = findViewById(R.id.et_dataInputEmail);
+        et_dataInputPassword = findViewById(R.id.et_dataInputPassword);
+        //lv_weatherReport = findViewById(R.id.lv_weatherReport);
 
         // click listeners for each button
-        btn_getCityID.setOnClickListener(new View.OnClickListener() {
+        btn_SignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 // Instantiate the RequestQueue.
                 RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
 
-                //String url = "http://localhost:8080/rest/user/register";
-                String url = "http://10.0.2.2:8080/rest/vehicle/information?userId=732a2c2e-9fba-11ee-83ae-0242ac110002";
-                //String url = "https://dummyjson.com/products/1";
+                String url = "http://10.0.2.2:8080/rest/user/login";
+
+                // Data to transfer
+                final String email = et_dataInputEmail.getText().toString();
+                final String password = et_dataInputPassword.getText().toString();
+
+                // Prepare JSON object
+                JSONObject requestBody = new JSONObject();
+                try {
+                    requestBody.put("email", email);
+                    requestBody.put("password", password);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 // Request a string response from the provided URL.
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                StringRequest loginRequest = new StringRequest(Request.Method.POST, url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                // Display the first 500 characters of the response string.
-                                    Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
+                                // Handle the String response
+                                Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
                             }
-                        }, new Response.ErrorListener() {
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.e("Volley Error", "Error occurred: " + error.toString());
+                            }
+                        }) {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("Volley Error", "Error occurred: " + error.toString());
+                    public byte[] getBody() {
+                        // Send data as a string, even if it is actually in JSON form
+                        return requestBody.toString().getBytes();
                     }
-                });
+
+                    @Override
+                    public Map<String, String> getHeaders() {
+                        // Set header Content-Type as application/json
+                        Map<String, String> headers = new HashMap<>();
+                        headers.put("Content-Type", "application/json");
+                        return headers;
+                    }
+                };
 
                 // Add the request to the RequestQueue.
-                queue.add(stringRequest);
+                queue.add(loginRequest);
 
-                // Toast.makeText(MainActivity.this, "Button 1 clicked", Toast.LENGTH_SHORT).show();
             }
         });
 
-        btn_getWeatherByCityID.setOnClickListener(new View.OnClickListener() {
+        btn_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Button 2 clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+                // Ładuj nowy układ dla widoku rejestracji
+                setContentView(R.layout.activity_signup);
 
-        btn_getWeatherByCityName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(MainActivity.this, "You typed " + et_dataInput.getText().toString(), Toast.LENGTH_SHORT).show();
+                // Dodaj obsługę dla przycisku "Back to Login" na nowym układzie
+                Button btn_BackToLogin = findViewById(R.id.btn_BackToLogin);
+                btn_BackToLogin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Po wciśnięciu przycisku "Back to Login" wróć do pierwotnego układu
+                        setContentView(R.layout.activity_main);
+                    }
+                });
             }
         });
 

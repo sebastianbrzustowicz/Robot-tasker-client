@@ -6,53 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_getCityID"
+    <EditText
+        android:id="@+id/et_dataInputEmail"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text=""
+        android:hint="Enter your email"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+
+    <EditText
+        android:id="@+id/et_dataInputPassword"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text=""
+        android:hint="Enter your password"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPassword" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Get city ID"
-        app:layout_constraintEnd_toStartOf="@+id/btn_getWeatherByCityID"
+        android:layout_marginTop="200dp"
+        android:text="Email"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_getWeatherByCityID"
+    <TextView
+        android:id="@+id/textViewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weather by ID"
-        app:layout_constraintStart_toEndOf="@+id/btn_getCityID"
-        app:layout_constraintEnd_toStartOf="@+id/btn_getWeatherByCityName"
-        app:layout_constraintTop_toTopOf="@+id/btn_getCityID" />
+        android:layout_marginTop="20dp"
+        android:text="Password"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_dataInputEmail" />
 
     <Button
-        android:id="@+id/btn_getWeatherByCityName"
+        android:id="@+id/btn_SignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weather by name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_getWeatherByCityID"
-        app:layout_constraintTop_toTopOf="@+id/btn_getWeatherByCityID" />
+        android:layout_marginTop="40dp"
+        android:text="Sign in"
+        app:layout_constraintStart_toStartOf="@+id/et_dataInputPassword"
+        app:layout_constraintTop_toBottomOf="@+id/et_dataInputPassword" />
 
-    <EditText
-        android:id="@+id/et_dataInput"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/btn_SignUp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="City name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_getCityID" />
+        android:text="Sign up"
+        app:layout_constraintEnd_toEndOf="@+id/et_dataInputPassword"
+        app:layout_constraintTop_toTopOf="@+id/btn_SignIn" />
 
-    <ListView
-        android:id="@+id/lv_weatherReport"
-        android:layout_width="391dp"
-        android:layout_height="682dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_dataInput" />
 </androidx.constraintlayout.widget.ConstraintLayout>
