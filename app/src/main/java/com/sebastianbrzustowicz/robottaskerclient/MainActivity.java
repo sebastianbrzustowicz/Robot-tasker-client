@@ -2,6 +2,7 @@ package com.sebastianbrzustowicz.robottaskerclient;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -106,18 +107,11 @@ public class MainActivity extends AppCompatActivity {
         btn_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Ładuj nowy układ dla widoku rejestracji
-                setContentView(R.layout.activity_signup);
+                // Tworzenie nowego Intentu, który przeniesie do RegistrationActivity
+                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
 
-                // Dodaj obsługę dla przycisku "Back to Login" na nowym układzie
-                Button btn_BackToLogin = findViewById(R.id.btn_BackToLogin);
-                btn_BackToLogin.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Po wciśnięciu przycisku "Back to Login" wróć do pierwotnego układu
-                        setContentView(R.layout.activity_main);
-                    }
-                });
+                // Uruchamianie nowej aktywności
+                startActivity(intent);
             }
         });
 
