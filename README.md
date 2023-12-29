@@ -6,7 +6,14 @@ Application was created with Android Studio.
 
 ## Views
 
-here screens of views
+<p align="center">
+  <img src="https://github.com/sebastianbrzustowicz/Robot-tasker-client/assets/66909222/fbac2ff9-9284-486f-9a1d-a4fe47b85eff" width="32%" height="auto"/>
+  <img src="https://github.com/sebastianbrzustowicz/Robot-tasker-client/assets/66909222/53c2c736-17cc-4a87-bee5-01bf815a9d81" width="32%" height="auto"/>
+  <img src="https://github.com/sebastianbrzustowicz/Robot-tasker-client/assets/66909222/53c2c736-17cc-4a87-bee5-01bf815a9d81" width="32%" height="auto"/>
+</p>
+<div align=center>
+<img src="https://github.com/sebastianbrzustowicz/Robot-tasker-client/assets/66909222/29531996-a6cd-47f0-aff5-8912055ddba0" width="70%" height="auto"/>
+</div>
 
 ## Data sent to API
 
