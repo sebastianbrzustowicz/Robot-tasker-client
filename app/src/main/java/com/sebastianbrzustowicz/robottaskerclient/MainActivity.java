@@ -25,6 +25,11 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.content.Context;
+import android.app.Activity;
+
+import androidx.core.content.ContextCompat;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btn_SignIn, btn_SignUp;
@@ -73,8 +78,28 @@ public class MainActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                // Handle the String response
                                 Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
+                                if (response.startsWith("Logged in, your UUID is:")) {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Context applicationContext = getApplicationContext();
+
+                                            int length = response.length();
+                                            String userId = response.substring(Math.max(0, length - 36));
+
+                                            ((MyApplication) applicationContext).setUserId(userId);
+                                            ((MyApplication) applicationContext).setEmail(email);
+                                            ((MyApplication) applicationContext).setPassword(password);
+
+                                            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                                            startActivity(intent);
+
+                                            // getter - for later purpose
+                                            //String s = ((MyApplication) applicationContext).getEmail();
+                                        }
+                                    });
+                                }
                             }
                         },
                         new Response.ErrorListener() {
