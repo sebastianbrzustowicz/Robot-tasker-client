@@ -32,7 +32,9 @@
         <activity android:name=".MenuActivity">
         </activity>
 
-        <activity android:name=".VehicleActivity">
+        <activity
+            android:name=".VehicleActivity"
+            android:screenOrientation="landscape">
         </activity>
 
     </application>
