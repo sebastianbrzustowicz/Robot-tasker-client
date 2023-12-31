@@ -37,6 +37,9 @@
             android:screenOrientation="landscape">
         </activity>
 
+        <activity android:name=".VehicleMenuActivity">
+        </activity>
+
     </application>
 
 </manifest>

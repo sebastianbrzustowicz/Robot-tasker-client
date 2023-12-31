@@ -149,7 +149,7 @@ public class MenuActivity extends AppCompatActivity {
                 }
                 //Log.d("test", "Wartość zmiennej: " + name + " " + uuid);
 
-                Intent intent = new Intent(MenuActivity.this, VehicleActivity.class);
+                Intent intent = new Intent(MenuActivity.this, VehicleMenuActivity.class);
                 intent.putExtra("vehicleName", name);
                 intent.putExtra("vehicleUUID", uuid);
                 startActivity(intent);
