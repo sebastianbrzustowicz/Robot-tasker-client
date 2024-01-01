@@ -16,7 +16,23 @@ Some of the implemented views:
 <img src="https://github.com/sebastianbrzustowicz/Robot-tasker-client/assets/66909222/1c7cd0c5-4b2b-41ff-9db1-bdf2af24e347" width="70%" height="auto"/>
 </div>
 
-## Data sent to API
+## Hierarchy of views
+
+A hierarchy of XML layout files is as follows:
+
+```
+- `res`
+  - `layout`
+    - `activity_login.xml`
+      - `activity_menu.xml`
+        - `activity_vehicle_menu.xml`
+          - `activity_vehicle_runtime.xml`
+        - `activity_register_vehicle.xml`
+          - `activity_register_custom_vehicle.xml`
+    - `activity_register.xml`
+```
+
+## Transferred data
 
 The data that are sent to the API depend on the type of vehicle. In this case, it is a quadcopter:
 
