@@ -1,6 +1,8 @@
 package com.sebastianbrzustowicz.robottaskerclient;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +24,7 @@ import java.util.Map;
 public class VehicleRegistrationActivity extends AppCompatActivity {
 
     Button btn_RegisterVehicle, btn_BackToMenu, btn_CustomVehicle;
+    EditText et_VehicleId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class VehicleRegistrationActivity extends AppCompatActivity {
         btn_RegisterVehicle = findViewById(R.id.btn_RegisterVehicle);
         btn_BackToMenu = findViewById(R.id.btn_BackToMenu);
         btn_CustomVehicle = findViewById(R.id.btn_CustomVehicle);
+        et_VehicleId = findViewById(R.id.et_VehicleId);
 
         btn_BackToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +50,60 @@ public class VehicleRegistrationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(VehicleRegistrationActivity.this, CustomVehicleRegistrationActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btn_RegisterVehicle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                RequestQueue queue = Volley.newRequestQueue(VehicleRegistrationActivity.this);
+
+                String url = "http://10.0.2.2:8080/rest/vehicle/register";
+
+                Context applicationContext = getApplicationContext();
+
+                final String vehicleId = et_VehicleId.getText().toString();
+                final String userId = ((MyApplication) applicationContext).getUserId();
+                JSONObject requestBody = new JSONObject();
+                try {
+                    requestBody.put("userId", userId);
+                    requestBody.put("vehicleId", vehicleId);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                StringRequest registerVehicleRequest = new StringRequest(Request.Method.POST, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Toast.makeText(VehicleRegistrationActivity.this, response, Toast.LENGTH_SHORT).show();
+                                if (response.equals("Registration successful")) {
+                                    Intent intent = new Intent(VehicleRegistrationActivity.this, MenuActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.e("Volley Error", "Error occurred: " + error.toString());
+                            }
+                        }) {
+                    @Override
+                    public byte[] getBody() {
+                        return requestBody.toString().getBytes();
+                    }
+                    @Override
+                    public Map<String, String> getHeaders() {
+                        Map<String, String> headers = new HashMap<>();
+                        headers.put("Content-Type", "application/json");
+                        return headers;
+                    }
+                };
+
+                queue.add(registerVehicleRequest);
+
             }
         });
     }

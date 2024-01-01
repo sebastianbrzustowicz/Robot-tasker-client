@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,26 +27,21 @@ import android.content.Context;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button btn_SignIn, btn_SignUp;
+    Button btn_LoginRequest, btn_SwapToRegister;
     EditText et_dataInputEmail, et_dataInputPassword;
-    ListView lv_weatherReport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // assign values to each control on the layout
-        btn_SignIn = findViewById(R.id.btn_SignIn);
-        btn_SignUp = findViewById(R.id.btn_SignUp);
-        //btn_getWeatherByCityName = findViewById(R.id.btn_getWeatherByCityName);
 
+        btn_LoginRequest = findViewById(R.id.btn_LoginRequest);
+        btn_SwapToRegister = findViewById(R.id.btn_SwapToRegister);
         et_dataInputEmail = findViewById(R.id.et_dataInputEmail);
         et_dataInputPassword = findViewById(R.id.et_dataInputPassword);
-        //lv_weatherReport = findViewById(R.id.lv_weatherReport);
 
-        // click listeners for each button
-        btn_SignIn.setOnClickListener(new View.OnClickListener() {
+        btn_LoginRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -125,13 +119,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        btn_SignUp.setOnClickListener(new View.OnClickListener() {
+        btn_SwapToRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Tworzenie nowego Intentu, który przeniesie do RegistrationActivity
                 Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
-
-                // Uruchamianie nowej aktywności
                 startActivity(intent);
             }
         });

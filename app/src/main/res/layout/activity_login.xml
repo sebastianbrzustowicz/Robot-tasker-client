@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_dataInputEmail" />
 
     <Button
-        android:id="@+id/btn_SignIn"
+        android:id="@+id/btn_LoginRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -67,12 +67,12 @@
         app:layout_constraintTop_toBottomOf="@+id/et_dataInputPassword" />
 
     <Button
-        android:id="@+id/btn_SignUp"
+        android:id="@+id/btn_SwapToRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Swap to\nRegister"
         app:layout_constraintEnd_toEndOf="@+id/et_dataInputPassword"
-        app:layout_constraintTop_toTopOf="@+id/btn_SignIn" />
+        app:layout_constraintTop_toTopOf="@+id/btn_LoginRequest" />
 
     <ImageView
         android:id="@+id/imageView2"

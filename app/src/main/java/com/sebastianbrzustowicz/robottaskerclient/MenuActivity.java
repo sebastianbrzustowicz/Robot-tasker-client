@@ -116,6 +116,7 @@ public class MenuActivity extends AppCompatActivity {
                         ((MyApplication) applicationContext).setEmail("none");
                         ((MyApplication) applicationContext).setEmail("none");
                         ((MyApplication) applicationContext).setPassword("none");
+                        ((MyApplication) applicationContext).setVehicleId("none");
 
                     }
                 });
@@ -142,6 +143,9 @@ public class MenuActivity extends AppCompatActivity {
                     uuid = clickedVehicle.substring(uuidIndex + "UUID: ".length()).trim();
                 }
                 //Log.d("test", "Wartość zmiennej: " + name + " " + uuid);
+
+                Context applicationContext = getApplicationContext();
+                ((MyApplication) applicationContext).setVehicleId(uuid);
 
                 Intent intent = new Intent(MenuActivity.this, VehicleMenuActivity.class);
                 intent.putExtra("vehicleName", name);

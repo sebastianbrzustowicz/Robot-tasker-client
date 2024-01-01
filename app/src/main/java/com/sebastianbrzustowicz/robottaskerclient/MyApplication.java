@@ -7,6 +7,8 @@ public class MyApplication extends Application {
     private String userId;
     private String email;
     private String password;
+    private String vehicleId;
+
 
     public String getUserId() {
         return userId;
@@ -31,4 +33,8 @@ public class MyApplication extends Application {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getVehicleId() { return vehicleId; }
+
+    public void setVehicleId(String vehicleId) { this.vehicleId = vehicleId; }
 }

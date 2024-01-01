@@ -84,8 +84,12 @@ public class RegistrationActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 final int resValue = Integer.valueOf(response);
-                                String message = (response != null && resValue == 1) ? "Registered" : "Cannot register";
+                                String message = (response != null && resValue == 1) ? "Registered successfully" : "Cannot register";
                                 Toast.makeText(RegistrationActivity.this, message, Toast.LENGTH_SHORT).show();
+                                if (response != null && resValue == 1) {
+                                    Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                }
                             }
                         },
                         new Response.ErrorListener() {
