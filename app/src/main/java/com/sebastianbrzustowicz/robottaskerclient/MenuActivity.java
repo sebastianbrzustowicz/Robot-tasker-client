@@ -10,17 +10,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -28,15 +25,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class MenuActivity extends AppCompatActivity {
 
     Button btn_Logout;
+    ImageButton btn_add_vehicle;
     ListView lv_vehicleList;
 
     @Override
@@ -45,6 +39,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         btn_Logout = findViewById(R.id.btn_Logout);
+        btn_add_vehicle = findViewById(R.id.btn_add_vehicle);
         lv_vehicleList = findViewById(R.id.lv_vehicleList);
 
         Context applicationContext = getApplicationContext();
@@ -109,7 +104,6 @@ public class MenuActivity extends AppCompatActivity {
 
         requestQueue.add(jsonArrayRequest);
 
-
         btn_Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +120,7 @@ public class MenuActivity extends AppCompatActivity {
                     }
                 });
                 // Change activity
-                Intent intent = new Intent(MenuActivity.this, MainActivity.class);
+                Intent intent = new Intent(MenuActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -152,6 +146,14 @@ public class MenuActivity extends AppCompatActivity {
                 Intent intent = new Intent(MenuActivity.this, VehicleMenuActivity.class);
                 intent.putExtra("vehicleName", name);
                 intent.putExtra("vehicleUUID", uuid);
+                startActivity(intent);
+            }
+        });
+
+        btn_add_vehicle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, VehicleRegistrationActivity.class);
                 startActivity(intent);
             }
         });

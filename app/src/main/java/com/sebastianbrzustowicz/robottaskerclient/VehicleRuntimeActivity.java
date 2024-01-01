@@ -7,9 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-public class VehicleActivity extends AppCompatActivity {
+public class VehicleRuntimeActivity extends AppCompatActivity {
 
     Button btn_Disconnect;
     TriStateButton triStateButton;
@@ -17,7 +16,7 @@ public class VehicleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vehicle);
+        setContentView(R.layout.activity_vehicle_runtime);
 
         btn_Disconnect = findViewById(R.id.btn_Disconnect);
         triStateButton = findViewById(R.id.triStateButton);
@@ -27,7 +26,7 @@ public class VehicleActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Change activity
-                Intent intent = new Intent(VehicleActivity.this, VehicleMenuActivity.class);
+                Intent intent = new Intent(VehicleRuntimeActivity.this, VehicleMenuActivity.class);
                 startActivity(intent);
             }
         });

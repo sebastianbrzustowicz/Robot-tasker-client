@@ -17,7 +17,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,11 +33,17 @@
         </activity>
 
         <activity
-            android:name=".VehicleActivity"
+            android:name=".VehicleRuntimeActivity"
             android:screenOrientation="landscape">
         </activity>
 
         <activity android:name=".VehicleMenuActivity">
+        </activity>
+
+        <activity android:name=".VehicleRegistrationActivity">
+        </activity>
+
+        <activity android:name=".CustomVehicleRegistrationActivity">
         </activity>
 
     </application>

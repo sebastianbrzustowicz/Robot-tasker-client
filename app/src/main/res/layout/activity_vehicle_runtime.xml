@@ -8,7 +8,7 @@
     android:orientation="horizontal"
     android:screenOrientation="landscape"
     android:background="@drawable/stream_view"
-    tools:context=".VehicleActivity">
+    tools:context=".VehicleRuntimeActivity">
 
     <ImageButton
         android:id="@+id/btn_upArrowR"

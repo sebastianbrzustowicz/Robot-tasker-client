@@ -14,7 +14,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -35,12 +34,12 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         // assign values to each control on the layout
-        btn_SignUpRegisterForm = findViewById(R.id.btn_SignUpRegisterForm);
+        btn_SignUpRegisterForm = findViewById(R.id.btn_CustomRegisterSend);
         btn_SwapToLoginRegisterForm = findViewById(R.id.btn_SwapToLoginRegisterForm);
 
-        et_dataInputLoginRegisterForm = findViewById(R.id.et_dataInputLoginRegisterForm);
-        et_dataInputPasswordRegisterForm = findViewById(R.id.et_dataInputPasswordRegisterForm);
-        et_dataInputEmailRegisterForm = findViewById(R.id.et_dataInputEmailRegisterForm);
+        et_dataInputLoginRegisterForm = findViewById(R.id.et_CustomVehicleId);
+        et_dataInputPasswordRegisterForm = findViewById(R.id.et_VehicleName);
+        et_dataInputEmailRegisterForm = findViewById(R.id.et_VehicleType);
         et_dataInputPhoneNumberRegisterForm = findViewById(R.id.et_dataInputPhoneNumberRegisterForm);
 
         btn_SignUpRegisterForm.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +115,7 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Creating a new Intent, which will transfer to RegistrationActivity
-                Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
 
                 // Launching a new activity
                 startActivity(intent);

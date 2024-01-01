@@ -26,7 +26,7 @@ import java.util.Map;
 
 import android.content.Context;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     Button btn_SignIn, btn_SignUp;
     EditText et_dataInputEmail, et_dataInputPassword;
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Instantiate the RequestQueue.
-                RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
 
                 String url = "http://10.0.2.2:8080/rest/user/login";
 
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                Toast.makeText(MainActivity.this, response, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
                                 if (response.startsWith("Logged in, your UUID is:")) {
                                     runOnUiThread(new Runnable() {
                                         @Override
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                                             ((MyApplication) applicationContext).setEmail(email);
                                             ((MyApplication) applicationContext).setPassword(password);
 
-                                            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                                             startActivity(intent);
 
                                             // getter - for later purpose
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Tworzenie nowego Intentu, który przeniesie do RegistrationActivity
-                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
 
                 // Uruchamianie nowej aktywności
                 startActivity(intent);
