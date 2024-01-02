@@ -2,7 +2,22 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="ExampleInstrumentedTest">
+        <State />
+      </entry>
       <entry key="app">
+        <State />
+      </entry>
+      <entry key="loginButtonClicked_Failed()">
+        <State />
+      </entry>
+      <entry key="loginButtonClicked_Success()">
+        <State />
+      </entry>
+      <entry key="swapToLoginButtonClicked()">
+        <State />
+      </entry>
+      <entry key="swapToRegisterButtonClicked()">
         <State />
       </entry>
     </value>

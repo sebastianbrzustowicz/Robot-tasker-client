@@ -13,7 +13,7 @@ Some of the implemented views:
   <img src="https://github.com/sebastianbrzustowicz/Robot-tasker-client/assets/66909222/036e664b-ceb0-418d-9342-536f18a98cb5" width="32%" height="auto"/>
 </p>
 <div align=center>
-<img src="https://github.com/sebastianbrzustowicz/Robot-tasker-client/assets/66909222/1c7cd0c5-4b2b-41ff-9db1-bdf2af24e347" width="70%" height="auto"/>
+<img src="https://github.com/sebastianbrzustowicz/Robot-tasker-client/assets/66909222/1c7cd0c5-4b2b-41ff-9db1-bdf2af24e347" width="72%" height="auto"/>
 </div>
 
 ## Hierarchy of views
@@ -56,7 +56,13 @@ The data that are sent to the API depend on the type of vehicle. In this case, i
 
 Some simple JUnit tests have been implemented:
 ```java
-to do
+useAppContext()
+loginButtonClicked_Success()
+loginButtonClicked_Failed()
+swapToRegisterButtonClicked()
+registerButtonClicked_Success()
+registerButtonClicked_Failed()
+swapToLoginButtonClicked()
 ```
 
 ## License
