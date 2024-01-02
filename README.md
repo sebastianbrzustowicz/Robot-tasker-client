@@ -54,7 +54,7 @@ The data that are sent to the API depend on the type of vehicle. In this case, i
 
 ## Tests
 
-Some simple JUnit tests have been implemented:
+Some simple instrumented AndroidJUnit4 tests have been implemented:
 ```java
 useAppContext()
 loginButtonClicked_Success()
