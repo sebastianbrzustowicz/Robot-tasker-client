@@ -1,6 +1,6 @@
-## RobotTaskerClient
+## Robot Tasker Client
 
-RobotTaskerClient is a Java-based Android application created to establish compatible communication with dedicated API.   
+Robot Tasker Client is a Java-based Android application created to establish compatible communication with dedicated API.   
 Compatible API which this client is communicating with is shared [here](https://github.com/sebastianbrzustowicz/Robot-tasker-API).   
 Minimum SDK/API level is 24, which is Android 7.0 Nougat (cumulative coverage 96.8% of all devices in use).  
 Application was created with Android Studio.  
@@ -73,7 +73,7 @@ swapToLoginButtonClicked()
 
 ## License
 
-RobotTaskerClient is released under the CC BY-NC-ND 4.0 license.
+Robot Tasker Client is released under the CC BY-NC-ND 4.0 license.
 
 ## Author
 
