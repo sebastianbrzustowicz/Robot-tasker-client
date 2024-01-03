@@ -40,7 +40,7 @@ A hierarchy of XML layout files is as follows:
 
 ## Transferred data
 
-The data that are sent to the API depend on the type of vehicle. In this case, it is a quadcopter:
+The data sent to the API depends on the type of vehicle. In this case, it is a quadcopter:
 
 ```json
 {
