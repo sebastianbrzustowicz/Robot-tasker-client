@@ -44,8 +44,15 @@ public class WebSocketClientManager {
             }
 
             @Override
-            public void onTextReceived(String message) {
-                System.out.println("Received message: " + message);
+            public void onTextReceived(String msg) {
+                System.out.println("Received message:\n" + msg);
+
+                VehicleData vehicleData = VehicleData.getInstance();
+                if (msg.startsWith("VEHICLE")) {
+                    String[] lines = msg.split("\n");
+                    int altitude = Integer.parseInt(lines[1]);
+                    vehicleData.saveSensorsValues(altitude);
+                }
             }
 
             @Override

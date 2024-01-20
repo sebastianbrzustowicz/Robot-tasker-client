@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.sebastianbrzustowicz.robottaskerclient.global.MyApplication;
 import com.sebastianbrzustowicz.robottaskerclient.R;
+import com.sebastianbrzustowicz.robottaskerclient.service.VehicleData;
 import com.sebastianbrzustowicz.robottaskerclient.service.WebSocketClientManager;
 
 import org.json.JSONArray;
@@ -131,6 +132,9 @@ public class VehicleMenuActivity extends AppCompatActivity {
                 Context applicationContext = getApplicationContext();
                 final String vehicleId = ((MyApplication) applicationContext).getVehicleId();
                 socketManager.sendMessage("vehicleId: " + vehicleId);
+
+                VehicleData vehicleData = VehicleData.getInstance();
+                vehicleData.setVehicleId(vehicleId);
 
                 Intent intent = new Intent(VehicleMenuActivity.this, VehicleRuntimeActivity.class);
                 startActivity(intent);

@@ -14,6 +14,8 @@ public class VehicleData {
     private boolean camTog;
     private int camPitch;
     private boolean clamp;
+    // sensors values
+    private int altitude;
 
     private VehicleData() {
         this.vehicleId = "";
@@ -27,6 +29,8 @@ public class VehicleData {
         this.camTog = false;
         this.camPitch = 0;
         this.clamp = false;
+
+        this.altitude = 0;
     }
 
     // Instance
@@ -39,20 +43,37 @@ public class VehicleData {
     }
 
     public String getFrame() {
+        // there handshake should be established between server and client
+        // data is sent in raw format but values stands for these variables:
+        // CLIENT                                   <- fixed prefix for client message
+        // 4436ed9a-5228-46c0-b825-6d0a3cd90437     <- vehicleId
+        // 1                                        <- mode
+        // 0                                        <- vtol
+        // 0                                        <- x
+        // 0                                        <- y
+        // 0                                        <- alt
+        // 0                                        <- yaw
+        // false                                    <- camTrig
+        // false                                    <- camTog
+        // 0                                        <- camPitch
+        // false                                    <- clamp
+        // END                                      <- fixed ending statement of message
+
         StringBuilder dataFrame = new StringBuilder();
 
         dataFrame.append("CLIENT").append("\n");
-        dataFrame.append("vehicleId: ").append(vehicleId).append("\n");
-        dataFrame.append("mode: ").append(mode).append("\n");
-        dataFrame.append("vtol: ").append(vtol).append("\n");
-        dataFrame.append("x: ").append(x).append("\n");
-        dataFrame.append("y: ").append(y).append("\n");
-        dataFrame.append("altitude: ").append(alt).append("\n");
-        dataFrame.append("yaw: ").append(yaw).append("\n");
-        dataFrame.append("camTrig: ").append(camTrig).append("\n");
-        dataFrame.append("camTog: ").append(camTog).append("\n");
-        dataFrame.append("camPitch: ").append(camPitch).append("\n");
-        dataFrame.append("clamp: ").append(clamp).append("\n");
+        dataFrame.append(vehicleId).append("\n");
+        dataFrame.append(mode).append("\n");
+        dataFrame.append(vtol).append("\n");
+        dataFrame.append(x).append("\n");
+        dataFrame.append(y).append("\n");
+        dataFrame.append(alt).append("\n");
+        dataFrame.append(yaw).append("\n");
+        dataFrame.append(camTrig).append("\n");
+        dataFrame.append(camTog).append("\n");
+        dataFrame.append(camPitch).append("\n");
+        dataFrame.append(clamp).append("\n");
+        dataFrame.append("END");
 
         return dataFrame.toString();
     }
@@ -69,6 +90,12 @@ public class VehicleData {
         this.camTog = false;
         this.camPitch = 0;
         this.clamp = false;
+
+        this.altitude = 0;
+    }
+
+    public void saveSensorsValues(int altitude) {
+        this.alt = altitude;
     }
 
     // Getter and setter methods
