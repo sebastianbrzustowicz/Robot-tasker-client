@@ -40,22 +40,24 @@ A hierarchy of XML layout files is as follows:
 
 ## Transferred data
 
-The data sent to the API depends on the type of vehicle. In this case, it is a quadcopter:
+The data sent to the API depends on the type of vehicle. In this case, it is a quadcopter.     
+Handshake should be established between server and client according to data order.     
+The data is sent in raw string format but its values stands for these variables:
 
-```json
-{
-  "vehicleId": "e218e18c-9e1c-11ee-8c90-0242ac120002",
-  "mode": 1,
-  "vtol": 0,
-  "x": 1,
-  "y": 0,
-  "alt": 1,
-  "yaw": 0,
-  "camTrig": 0,
-  "camTog": 0,
-  "camPitch": 0,
-  "clamp": 0
-}
+```
+CLIENT                                  // <- fixed prefix for client message
+4436ed9a-5228-46c0-b825-6d0a3cd90437    // <- vehicleId
+1                                       // <- mode
+0                                       // <- vtol
+0                                       // <- x
+0                                       // <- y
+0                                       // <- alt
+0                                       // <- yaw
+false                                   // <- camTrig
+false                                   // <- camTog
+0                                       // <- camPitch
+false                                   // <- clamp
+END                                     // <- fixed ending statement of message
 ```
 
 ## Tests
