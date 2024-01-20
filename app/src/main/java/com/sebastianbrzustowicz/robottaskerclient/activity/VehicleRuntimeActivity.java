@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.sebastianbrzustowicz.robottaskerclient.R;
 import com.sebastianbrzustowicz.robottaskerclient.model.TriStateButton;
+import com.sebastianbrzustowicz.robottaskerclient.service.VehicleData;
 import com.sebastianbrzustowicz.robottaskerclient.service.WebSocketClientManager;
 
 public class VehicleRuntimeActivity extends AppCompatActivity {
@@ -23,6 +24,8 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
     TriStateButton triStateButton;
     // WebSocket Singleton
     WebSocketClientManager socketManager = WebSocketClientManager.getInstance();
+    // Vehicle data to transfer Singleton
+    VehicleData vehicleData = VehicleData.getInstance();
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -60,16 +63,18 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // saving x value to singleton (have to create singleton first)
-                        // sending vehicleData.getFrame to websocket
-                        socketManager.sendMessage("x down update");
-                        //Toast.makeText(VehicleRuntimeActivity.this, "Przycisk naciśnięty", Toast.LENGTH_SHORT).show();
+                        vehicleData.setX(1);
+                        // sending actual frame to websocket
+                        socketManager.sendMessage(vehicleData.getFrame());
+                        //Toast.makeText(VehicleRuntimeActivity.this, "X down", Toast.LENGTH_SHORT).show();
                         return true;
 
                     case MotionEvent.ACTION_UP:
                         // saving x value to singleton
-                        // sending vehicleData.getFrame to websocket
-                        socketManager.sendMessage("x up update");
-                        //Toast.makeText(VehicleRuntimeActivity.this, "Przycisk puszczony", Toast.LENGTH_SHORT).show();
+                        vehicleData.setX(0);
+                        // sending actual frame to websocket
+                        socketManager.sendMessage(vehicleData.getFrame());
+                        //Toast.makeText(VehicleRuntimeActivity.this, "X up", Toast.LENGTH_SHORT).show();
                         return true;
 
                     default:
