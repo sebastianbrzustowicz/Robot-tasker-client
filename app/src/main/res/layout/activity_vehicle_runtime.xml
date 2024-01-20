@@ -11,7 +11,7 @@
     tools:context=".activity.VehicleRuntimeActivity">
 
     <ImageButton
-        android:id="@+id/btn_upArrowR"
+        android:id="@+id/btn_altitude_up"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -22,30 +22,30 @@
         app:srcCompat="@drawable/uparrow" />
 
     <ImageButton
-        android:id="@+id/btn_rightArrowR"
+        android:id="@+id/btn_yaw_right"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/btn_upArrowR"
-        app:layout_constraintTop_toBottomOf="@+id/btn_upArrowR"
+        app:layout_constraintStart_toEndOf="@+id/btn_altitude_up"
+        app:layout_constraintTop_toBottomOf="@+id/btn_altitude_up"
         app:srcCompat="@drawable/rightarrow" />
 
     <ImageButton
-        android:id="@+id/btn_downArrowR"
+        android:id="@+id/btn_altitude_down"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="fitXY"
-        app:layout_constraintEnd_toStartOf="@+id/btn_rightArrowR"
-        app:layout_constraintTop_toBottomOf="@+id/btn_rightArrowR"
+        app:layout_constraintEnd_toStartOf="@+id/btn_yaw_right"
+        app:layout_constraintTop_toBottomOf="@+id/btn_yaw_right"
         app:srcCompat="@drawable/downarrow" />
 
     <ImageButton
-        android:id="@+id/btn_leftArrowR"
+        android:id="@+id/btn_yaw_left"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="fitXY"
-        app:layout_constraintEnd_toStartOf="@+id/btn_upArrowR"
-        app:layout_constraintTop_toBottomOf="@+id/btn_upArrowR"
+        app:layout_constraintEnd_toStartOf="@+id/btn_altitude_up"
+        app:layout_constraintTop_toBottomOf="@+id/btn_altitude_up"
         app:srcCompat="@drawable/leftarrow" />
 
     <Button
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/btn_upArrow"
+        android:id="@+id/btn_x_up"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="100dp"
@@ -100,30 +100,30 @@
         app:srcCompat="@drawable/uparrow" />
 
     <ImageButton
-        android:id="@+id/rightArrow"
+        android:id="@+id/btn_y_right"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/btn_upArrow"
-        app:layout_constraintTop_toBottomOf="@+id/btn_upArrow"
+        app:layout_constraintStart_toEndOf="@+id/btn_x_up"
+        app:layout_constraintTop_toBottomOf="@+id/btn_x_up"
         app:srcCompat="@drawable/rightarrow" />
 
     <ImageButton
-        android:id="@+id/downArrow"
+        android:id="@+id/btn_x_down"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@+id/leftArrow"
-        app:layout_constraintTop_toBottomOf="@+id/rightArrow"
+        app:layout_constraintStart_toEndOf="@+id/btn_y_left"
+        app:layout_constraintTop_toBottomOf="@+id/btn_y_right"
         app:srcCompat="@drawable/downarrow" />
 
     <ImageButton
-        android:id="@+id/leftArrow"
+        android:id="@+id/btn_y_left"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:scaleType="fitXY"
-        app:layout_constraintEnd_toStartOf="@+id/btn_upArrow"
-        app:layout_constraintTop_toBottomOf="@+id/btn_upArrow"
+        app:layout_constraintEnd_toStartOf="@+id/btn_x_up"
+        app:layout_constraintTop_toBottomOf="@+id/btn_x_up"
         app:srcCompat="@drawable/leftarrow" />
 
     <TextView
@@ -139,16 +139,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/takePicture"
+        android:id="@+id/btn_camPitch"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_recording"
-        app:layout_constraintTop_toTopOf="@+id/btn_recording"
+        app:layout_constraintEnd_toStartOf="@+id/btn_camTrig"
+        app:layout_constraintTop_toTopOf="@+id/btn_camTrig"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <ImageButton
-        android:id="@+id/btn_recording"
+        android:id="@+id/btn_camTrig"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
@@ -158,12 +158,12 @@
         app:srcCompat="@android:drawable/ic_notification_overlay" />
 
     <ImageButton
-        android:id="@+id/btn_swapCamera"
+        android:id="@+id/btn_camTog"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/takePicture"
-        app:layout_constraintTop_toTopOf="@+id/takePicture"
+        app:layout_constraintEnd_toStartOf="@+id/btn_camPitch"
+        app:layout_constraintTop_toTopOf="@+id/btn_camPitch"
         app:srcCompat="@android:drawable/ic_popup_sync" />
 
     <ImageButton
@@ -191,8 +191,8 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_recording"
-        app:layout_constraintTop_toBottomOf="@+id/btn_recording"
+        app:layout_constraintEnd_toEndOf="@+id/btn_camTrig"
+        app:layout_constraintTop_toBottomOf="@+id/btn_camTrig"
         app:srcCompat="@android:drawable/ic_menu_send" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

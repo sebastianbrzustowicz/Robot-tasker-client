@@ -17,7 +17,7 @@ public class VehicleData {
 
     private VehicleData() {
         this.vehicleId = "";
-        this.mode = 0;
+        this.mode = 1;
         this.vtol = 0;
         this.x = 0;
         this.y = 0;
@@ -41,6 +41,7 @@ public class VehicleData {
     public String getFrame() {
         StringBuilder dataFrame = new StringBuilder();
 
+        dataFrame.append("CLIENT").append("\n");
         dataFrame.append("vehicleId: ").append(vehicleId).append("\n");
         dataFrame.append("mode: ").append(mode).append("\n");
         dataFrame.append("vtol: ").append(vtol).append("\n");
@@ -54,6 +55,20 @@ public class VehicleData {
         dataFrame.append("clamp: ").append(clamp).append("\n");
 
         return dataFrame.toString();
+    }
+
+    public void resetValues() {
+        this.vehicleId = "";
+        this.mode = 1;
+        this.vtol = 0;
+        this.x = 0;
+        this.y = 0;
+        this.alt = 0;
+        this.yaw = 0;
+        this.camTrig = false;
+        this.camTog = false;
+        this.camPitch = 0;
+        this.clamp = false;
     }
 
     // Getter and setter methods
