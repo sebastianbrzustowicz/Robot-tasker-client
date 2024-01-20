@@ -39,4 +39,6 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
     androidTestImplementation("androidx.test:rules:1.5.0")
     androidTestImplementation("androidx.test.espresso:espresso-intents:3.5.1")
+    implementation("org.java-websocket:Java-WebSocket:1.5.2")
+    implementation("tech.gusavila92:java-android-websocket-client:1.2.2")
 }

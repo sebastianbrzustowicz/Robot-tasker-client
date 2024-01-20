@@ -6,7 +6,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 
 import android.content.Context;
 
-import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.intent.Intents;
@@ -22,6 +21,8 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 import java.util.Random;
 import static org.hamcrest.Matchers.not;
+
+import com.sebastianbrzustowicz.robottaskerclient.activity.LoginActivity;
 
 
 /**
@@ -51,7 +52,7 @@ public class ExampleInstrumentedTest {
         // Click the login button
         Espresso.onView(withId(R.id.btn_LoginRequest)).perform(ViewActions.click());
 
-        intending(hasComponent("com.sebastianbrzustowicz.robottaskerclient.MenuActivity"));
+        intending(hasComponent("com.sebastianbrzustowicz.robottaskerclient.activity.MenuActivity"));
     }
 
     @Test
@@ -63,14 +64,14 @@ public class ExampleInstrumentedTest {
         // Click the login button
         Espresso.onView(withId(R.id.btn_LoginRequest)).perform(ViewActions.click());
 
-        intending(not(hasComponent("com.sebastianbrzustowicz.robottaskerclient.MenuActivity")));
+        intending(not(hasComponent("com.sebastianbrzustowicz.robottaskerclient.activity.MenuActivity")));
     }
 
     @Test
     public void swapToRegisterButtonClicked() {
         Espresso.onView(withId(R.id.btn_SwapToRegister)).perform(ViewActions.click());
 
-        Intents.intended(hasComponent("com.sebastianbrzustowicz.robottaskerclient.RegistrationActivity"));
+        Intents.intended(hasComponent("com.sebastianbrzustowicz.robottaskerclient.activity.RegistrationActivity"));
     }
 
 
@@ -88,7 +89,7 @@ public class ExampleInstrumentedTest {
 
         Espresso.onView(withId(R.id.btn_CustomRegisterSend)).perform(ViewActions.click());
 
-        Intents.intended(hasComponent("com.sebastianbrzustowicz.robottaskerclient.LoginActivity"));
+        Intents.intended(hasComponent("com.sebastianbrzustowicz.robottaskerclient.activity.LoginActivity"));
     }
 
     @Test
@@ -105,7 +106,7 @@ public class ExampleInstrumentedTest {
 
         Espresso.onView(withId(R.id.btn_CustomRegisterSend)).perform(ViewActions.click());
 
-        Intents.intended(hasComponent("com.sebastianbrzustowicz.robottaskerclient.RegistrationActivity"));
+        Intents.intended(hasComponent("com.sebastianbrzustowicz.robottaskerclient.activity.RegistrationActivity"));
     }
 
     @Test
@@ -114,6 +115,6 @@ public class ExampleInstrumentedTest {
 
         Espresso.onView(withId(R.id.btn_SwapToLoginRegisterForm)).perform(ViewActions.click());
 
-        Intents.intended(hasComponent("com.sebastianbrzustowicz.robottaskerclient.LoginActivity"));
+        Intents.intended(hasComponent("com.sebastianbrzustowicz.robottaskerclient.activity.LoginActivity"));
     }
 }

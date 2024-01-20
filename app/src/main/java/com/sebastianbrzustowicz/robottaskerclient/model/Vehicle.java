@@ -1,4 +1,4 @@
-package com.sebastianbrzustowicz.robottaskerclient;
+package com.sebastianbrzustowicz.robottaskerclient.model;
 
 public class Vehicle {
     private String userId;

@@ -1,4 +1,4 @@
-package com.sebastianbrzustowicz.robottaskerclient;
+package com.sebastianbrzustowicz.robottaskerclient.model;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,4 +1,4 @@
-package com.sebastianbrzustowicz.robottaskerclient;
+package com.sebastianbrzustowicz.robottaskerclient.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.sebastianbrzustowicz.robottaskerclient.global.MyApplication;
+import com.sebastianbrzustowicz.robottaskerclient.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -70,25 +72,18 @@ public class LoginActivity extends AppCompatActivity {
                             public void onResponse(String response) {
                                 Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
                                 if (response.startsWith("Logged in, your UUID is:")) {
-                                    runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            Context applicationContext = getApplicationContext();
+                                    Context context = getApplicationContext();
+                                    MyApplication myApplication = (MyApplication) context;
 
-                                            int length = response.length();
-                                            String userId = response.substring(Math.max(0, length - 36));
+                                    int length = response.length();
+                                    String userId = response.substring(Math.max(0, length - 36));
 
-                                            ((MyApplication) applicationContext).setUserId(userId);
-                                            ((MyApplication) applicationContext).setEmail(email);
-                                            ((MyApplication) applicationContext).setPassword(password);
+                                    myApplication.setUserId(userId);
+                                    myApplication.setEmail(email);
+                                    myApplication.setPassword(password);
 
-                                            Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                                            startActivity(intent);
-
-                                            // getter - for later purpose
-                                            //String s = ((MyApplication) applicationContext).getEmail();
-                                        }
-                                    });
+                                    Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                    startActivity(intent);
                                 }
                             }
                         },

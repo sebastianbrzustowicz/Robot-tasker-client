@@ -8,7 +8,7 @@
     android:orientation="horizontal"
     android:screenOrientation="landscape"
     android:background="@drawable/stream_view"
-    tools:context=".VehicleRuntimeActivity">
+    tools:context=".activity.VehicleRuntimeActivity">
 
     <ImageButton
         android:id="@+id/btn_upArrowR"
@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.sebastianbrzustowicz.robottaskerclient.TriStateButton
+    <com.sebastianbrzustowicz.robottaskerclient.model.TriStateButton
         android:id="@+id/triStateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.sebastianbrzustowicz.robottaskerclient;
+package com.sebastianbrzustowicz.robottaskerclient.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -20,21 +19,33 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.sebastianbrzustowicz.robottaskerclient.global.MyApplication;
+import com.sebastianbrzustowicz.robottaskerclient.R;
+import com.sebastianbrzustowicz.robottaskerclient.service.WebSocketClientManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import java.net.URI;
+import java.net.URISyntaxException;
+import tech.gusavila92.websocketclient.WebSocketClient;
 
 public class VehicleMenuActivity extends AppCompatActivity {
 
     Button btn_backToList, btn_connect;
     ImageButton imageButton_DeleteVehicle;
     TextView textView_VehicleNameInfo, textView_VehicleTypeInfo, textView_VehicleID, textView_UserID, textView_RegistrationDate;
+    //private WebSocketClient webSocketClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,9 +124,17 @@ public class VehicleMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // Change activity
+                WebSocketClientManager socketManager = WebSocketClientManager.getInstance();
+                String WebSocketUrl = "ws://10.0.2.2:8080/websocket-single-room";
+                socketManager.createWebSocketClient(WebSocketUrl);
+
+                Context applicationContext = getApplicationContext();
+                final String vehicleId = ((MyApplication) applicationContext).getVehicleId();
+                socketManager.sendMessage("vehicleId: " + vehicleId);
+
                 Intent intent = new Intent(VehicleMenuActivity.this, VehicleRuntimeActivity.class);
                 startActivity(intent);
+
             }
         });
 
@@ -171,4 +190,5 @@ public class VehicleMenuActivity extends AppCompatActivity {
             }
         });
     }
+
 }

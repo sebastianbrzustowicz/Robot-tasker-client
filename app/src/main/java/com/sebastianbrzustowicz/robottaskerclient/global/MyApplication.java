@@ -1,14 +1,15 @@
-package com.sebastianbrzustowicz.robottaskerclient;
+package com.sebastianbrzustowicz.robottaskerclient.global;
 
 import android.app.Application;
 
 public class MyApplication extends Application {
 
+
     private String userId;
     private String email;
     private String password;
     private String vehicleId;
-
+    private String authorizedVehicleId;
 
     public String getUserId() {
         return userId;
@@ -37,4 +38,12 @@ public class MyApplication extends Application {
     public String getVehicleId() { return vehicleId; }
 
     public void setVehicleId(String vehicleId) { this.vehicleId = vehicleId; }
+
+    public String getAuthorizedVehicleId() {
+        return authorizedVehicleId;
+    }
+
+    public void setAuthorizedVehicleId(String authorizedVehicleId) {
+        this.authorizedVehicleId = authorizedVehicleId;
+    }
 }
