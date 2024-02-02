@@ -6,31 +6,39 @@ public class VehicleData {
     private String vehicleId;
     private int mode;
     private int vtol;
-    private int x;
-    private int y;
-    private int alt;
-    private int yaw;
+    private int pitchd;
+    private int rolld;
+    private int altituded;
+    private int yawd;
     private boolean camTrig;
     private boolean camTog;
     private int camPitch;
     private boolean clamp;
     // sensors values
-    private int altitude;
+    private double roll;
+    private double pitch;
+    private double yaw;
+    private double altitude;
+    private boolean isClamp;
 
     private VehicleData() {
         this.vehicleId = "";
         this.mode = 1;
         this.vtol = 0;
-        this.x = 0;
-        this.y = 0;
-        this.alt = 0;
-        this.yaw = 0;
+        this.pitchd = 0;
+        this.rolld = 0;
+        this.altituded = 0;
+        this.yawd = 0;
         this.camTrig = false;
         this.camTog = false;
         this.camPitch = 0;
         this.clamp = false;
 
-        this.altitude = 0;
+        this.roll = 0.0;
+        this.pitch = 0.0;
+        this.yaw = 0.0;
+        this.altitude = 0.0;
+        this.isClamp = false;
     }
 
     // Instance
@@ -65,10 +73,10 @@ public class VehicleData {
         dataFrame.append(vehicleId).append("\n");
         dataFrame.append(mode).append("\n");
         dataFrame.append(vtol).append("\n");
-        dataFrame.append(x).append("\n");
-        dataFrame.append(y).append("\n");
-        dataFrame.append(alt).append("\n");
-        dataFrame.append(yaw).append("\n");
+        dataFrame.append(pitchd).append("\n");
+        dataFrame.append(rolld).append("\n");
+        dataFrame.append(altituded).append("\n");
+        dataFrame.append(yawd).append("\n");
         dataFrame.append(camTrig).append("\n");
         dataFrame.append(camTog).append("\n");
         dataFrame.append(camPitch).append("\n");
@@ -82,10 +90,10 @@ public class VehicleData {
         this.vehicleId = "";
         this.mode = 1;
         this.vtol = 0;
-        this.x = 0;
-        this.y = 0;
-        this.alt = 0;
-        this.yaw = 0;
+        this.pitchd = 0;
+        this.rolld = 0;
+        this.altituded = 0;
+        this.yawd = 0;
         this.camTrig = false;
         this.camTog = false;
         this.camPitch = 0;
@@ -94,8 +102,8 @@ public class VehicleData {
         this.altitude = 0;
     }
 
-    public void saveSensorsValues(int altitude) {
-        this.alt = altitude;
+    public void saveSensorsValues(double altitude) {
+        this.altitude = altitude;
     }
 
     // Getter and setter methods
@@ -124,36 +132,36 @@ public class VehicleData {
         this.vtol = vtol;
     }
 
-    public int getX() {
-        return x;
+    public int getPitchd() {
+        return pitchd;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setPitchd(int pitchd) {
+        this.pitchd = pitchd;
     }
 
-    public int getY() {
-        return y;
+    public int getRolld() {
+        return rolld;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setRolld(int rolld) {
+        this.rolld = rolld;
     }
 
-    public int getAlt() {
-        return alt;
+    public int getAltituded() {
+        return altituded;
     }
 
-    public void setAlt(int alt) {
-        this.alt = alt;
+    public void setAltituded(int altituded) {
+        this.altituded = altituded;
     }
 
-    public int getYaw() {
-        return yaw;
+    public int getYawd() {
+        return yawd;
     }
 
-    public void setYaw(int yaw) {
-        this.yaw = yaw;
+    public void setYawd(int yawd) {
+        this.yawd = yawd;
     }
 
     public boolean isCamTrig() {

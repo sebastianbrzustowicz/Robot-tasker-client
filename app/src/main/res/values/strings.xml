@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RobotTaskerClient</string>
+    <string name="address">http://192.168.10.192:8080</string>
+    <string name="wsaddress">ws://192.168.10.192:8080</string>
 </resources>

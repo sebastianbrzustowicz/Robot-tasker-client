@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -66,7 +67,9 @@ public class VehicleMenuActivity extends AppCompatActivity {
         String thisVehicleId = ((MyApplication) applicationContext).getVehicleId();
         String userId = ((MyApplication) applicationContext).getUserId();
 
-        String url = "http://10.0.2.2:8080/rest/vehicle/information?userId=" + userId;
+        Resources resources = getResources();
+        String domain = resources.getString(R.string.address);
+        String url = domain + "/rest/vehicle/information?userId=" + userId;
 
         RequestQueue queue = Volley.newRequestQueue(VehicleMenuActivity.this);
         JSONObject requestBody = null;
@@ -126,7 +129,10 @@ public class VehicleMenuActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 WebSocketClientManager socketManager = WebSocketClientManager.getInstance();
-                String WebSocketUrl = "ws://10.0.2.2:8080/websocket-single-room";
+
+                Resources resources = getResources();
+                String domain = resources.getString(R.string.wsaddress);
+                String WebSocketUrl = domain + "/websocket-single-room";
                 socketManager.createWebSocketClient(WebSocketUrl);
 
                 Context applicationContext = getApplicationContext();
@@ -147,7 +153,9 @@ public class VehicleMenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 RequestQueue queue = Volley.newRequestQueue(VehicleMenuActivity.this);
 
-                String url = "http://10.0.2.2:8080/rest/vehicle/delete";
+                Resources resources = getResources();
+                String domain = resources.getString(R.string.address);
+                String url = domain + "/rest/vehicle/delete";
 
                 Context applicationContext = getApplicationContext();
                 final String vehicleId = ((MyApplication) applicationContext).getVehicleId();

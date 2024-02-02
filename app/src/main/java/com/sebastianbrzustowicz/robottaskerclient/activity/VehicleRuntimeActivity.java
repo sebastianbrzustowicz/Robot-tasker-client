@@ -83,7 +83,7 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // saving x value to singleton
-                        vehicleData.setX(1);
+                        vehicleData.setPitchd(1);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         //Toast.makeText(VehicleRuntimeActivity.this, "X down", Toast.LENGTH_SHORT).show();
@@ -91,7 +91,7 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
 
                     case MotionEvent.ACTION_UP:
                         // saving x value to singleton
-                        vehicleData.setX(0);
+                        vehicleData.setPitchd(0);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         //Toast.makeText(VehicleRuntimeActivity.this, "X up", Toast.LENGTH_SHORT).show();
@@ -109,14 +109,14 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // saving x value to singleton
-                        vehicleData.setX(-1);
+                        vehicleData.setPitchd(-1);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
 
                     case MotionEvent.ACTION_UP:
                         // saving x value to singleton
-                        vehicleData.setX(0);
+                        vehicleData.setPitchd(0);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
@@ -133,14 +133,14 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // saving y value to singleton
-                        vehicleData.setY(-1);
+                        vehicleData.setRolld(-1);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
 
                     case MotionEvent.ACTION_UP:
                         // saving y value to singleton
-                        vehicleData.setY(0);
+                        vehicleData.setRolld(0);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
@@ -157,14 +157,14 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // saving y value to singleton
-                        vehicleData.setY(1);
+                        vehicleData.setRolld(1);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
 
                     case MotionEvent.ACTION_UP:
                         // saving y value to singleton
-                        vehicleData.setY(0);
+                        vehicleData.setRolld(0);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
@@ -181,14 +181,14 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // saving alt value to singleton
-                        vehicleData.setAlt(1);
+                        vehicleData.setAltituded(1);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
 
                     case MotionEvent.ACTION_UP:
                         // saving alt value to singleton
-                        vehicleData.setAlt(0);
+                        vehicleData.setAltituded(0);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
@@ -205,14 +205,14 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // saving alt value to singleton
-                        vehicleData.setAlt(-1);
+                        vehicleData.setAltituded(-1);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
 
                     case MotionEvent.ACTION_UP:
                         // saving alt value to singleton
-                        vehicleData.setAlt(0);
+                        vehicleData.setAltituded(0);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
@@ -229,14 +229,14 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // saving alt value to singleton
-                        vehicleData.setYaw(-1);
+                        vehicleData.setYawd(-1);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
 
                     case MotionEvent.ACTION_UP:
                         // saving alt value to singleton
-                        vehicleData.setYaw(0);
+                        vehicleData.setYawd(0);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
@@ -253,14 +253,14 @@ public class VehicleRuntimeActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         // saving yaw value to singleton
-                        vehicleData.setYaw(1);
+                        vehicleData.setYawd(1);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;
 
                     case MotionEvent.ACTION_UP:
                         // saving yaw value to singleton
-                        vehicleData.setYaw(0);
+                        vehicleData.setYawd(0);
                         // sending actual frame to websocket
                         socketManager.sendMessage(vehicleData.getFrame());
                         return true;

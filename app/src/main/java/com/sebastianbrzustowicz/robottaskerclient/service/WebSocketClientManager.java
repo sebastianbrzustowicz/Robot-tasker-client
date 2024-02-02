@@ -50,7 +50,7 @@ public class WebSocketClientManager {
                 VehicleData vehicleData = VehicleData.getInstance();
                 if (msg.startsWith("VEHICLE")) {
                     String[] lines = msg.split("\n");
-                    int altitude = Integer.parseInt(lines[1]);
+                    double altitude = Double.parseDouble(lines[1]);
                     vehicleData.saveSensorsValues(altitude);
                 }
             }

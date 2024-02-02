@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,7 +50,10 @@ public class MenuActivity extends AppCompatActivity {
         String userId = ((MyApplication) applicationContext).getUserId();
         //Log.d("test", "Wartość zmiennej: " + userId);
         //Toast.makeText(MenuActivity.this, userId, Toast.LENGTH_SHORT).show();
-        String url = "http://10.0.2.2:8080/rest/vehicle/information?userId=" + userId;
+
+        Resources resources = getResources();
+        String domain = resources.getString(R.string.address);
+        String url = domain + "/rest/vehicle/information?userId=" + userId;
 
 
         RequestQueue queue = Volley.newRequestQueue(MenuActivity.this);

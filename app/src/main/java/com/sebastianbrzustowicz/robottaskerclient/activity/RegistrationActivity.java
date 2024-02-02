@@ -3,6 +3,7 @@ package com.sebastianbrzustowicz.robottaskerclient.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,7 +51,9 @@ public class RegistrationActivity extends AppCompatActivity {
                 // Instantiate the RequestQueue.
                 RequestQueue queue = Volley.newRequestQueue(RegistrationActivity.this);
 
-                String url = "http://10.0.2.2:8080/rest/user/register";
+                Resources resources = getResources();
+                String domain = resources.getString(R.string.address);
+                String url = domain + "/rest/user/register";
 
                 // Data to transfer
                 final String login = et_dataInputLoginRegisterForm.getText().toString();

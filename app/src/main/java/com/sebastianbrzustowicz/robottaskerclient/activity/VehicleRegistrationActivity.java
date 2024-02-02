@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -62,7 +63,9 @@ public class VehicleRegistrationActivity extends AppCompatActivity {
 
                 RequestQueue queue = Volley.newRequestQueue(VehicleRegistrationActivity.this);
 
-                String url = "http://10.0.2.2:8080/rest/vehicle/register";
+                Resources resources = getResources();
+                String domain = resources.getString(R.string.address);
+                String url = domain + "/rest/vehicle/register";
 
                 Context applicationContext = getApplicationContext();
 
